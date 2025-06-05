@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_vpn_netnova/menu.dart';
 import 'package:my_vpn_netnova/speed_meter.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,20 +10,26 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text('NetNova'),
         centerTitle: true,
         leading: Padding(
           padding: const EdgeInsets.only(left: 10.0, top: 5, bottom: 5),
-          child: Card(
-            color: Colors.white,
-            child: Image.asset('assets/icon/Menu.png'),
+          child: GestureDetector(
+            onTap: () => _scaffoldKey.currentState?.openDrawer(),
+            child: Card(
+              color: Colors.white,
+              child: Image.asset('assets/icon/Menu.png'),
+            ),
           ),
         ),
       ),
+      drawer: Menu(),
       body: Column(
         children: [
           Card(
