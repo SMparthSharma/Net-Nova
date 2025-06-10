@@ -1,4 +1,4 @@
-class VpnInfp {
+class VpnInfo {
   late final String ip;
   late final String hostName;
   late final int speed;
@@ -7,7 +7,7 @@ class VpnInfp {
   late final String countryShortname;
   late final int vpnSessionNum;
   late final String base64OpenVPNConfigurationData;
-  VpnInfp({
+  VpnInfo({
     required this.hostName,
     required this.ip,
     required this.ping,
@@ -17,7 +17,7 @@ class VpnInfp {
     required this.vpnSessionNum,
     required this.base64OpenVPNConfigurationData,
   });
-  VpnInfp.fromJson(Map<String, dynamic> jsonData) {
+  VpnInfo.fromJson(Map<String, dynamic> jsonData) {
     hostName = jsonData['HostName'] ?? '';
     ip = jsonData['IP'] ?? '';
     ping = jsonData['Ping'] ?? '';
