@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_vpn_netnova/detail_page.dart';
 import 'package:my_vpn_netnova/menu.dart';
 import 'package:my_vpn_netnova/speed_meter.dart';
 
@@ -117,127 +118,140 @@ class _HomePageState extends State<HomePage> {
                 horizontal: 15.0,
                 vertical: 10,
               ),
-              child: Row(
-                children: [
-                  CircleAvatar(child: Image.asset('assets/icon/Menu.png')),
-                  SizedBox(width: 15),
-                  Text(
-                    'Germany',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                  ),
-                  Spacer(),
-                  IconButton(
-                    onPressed: () {
-                      final statusBarHeight = MediaQuery.of(
-                        context,
-                      ).padding.top;
-                      final availableHeight =
-                          MediaQuery.of(context).size.height - statusBarHeight;
+              child: GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => DetailPage()),
+                ),
+                child: Row(
+                  children: [
+                    CircleAvatar(child: Image.asset('assets/icon/Menu.png')),
+                    SizedBox(width: 15),
+                    Text(
+                      'Germany',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Spacer(),
+                    IconButton(
+                      onPressed: () {
+                        final statusBarHeight = MediaQuery.of(
+                          context,
+                        ).padding.top;
+                        final availableHeight =
+                            MediaQuery.of(context).size.height -
+                            statusBarHeight;
 
-                      showModalBottomSheet(
-                        context: context,
-                        isScrollControlled: true,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(20),
-                          ),
-                        ),
-                        builder: (BuildContext context) {
-                          return Container(
-                            padding: EdgeInsets.only(
-                              top: 16,
-                              left: 16,
-                              right: 16,
-                              bottom: MediaQuery.of(context).viewInsets.bottom,
+                        showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(20),
                             ),
-                            height: availableHeight,
-                            width: double.infinity,
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: 6,
-                                  margin: EdgeInsets.only(bottom: 20),
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey[300],
-                                    borderRadius: BorderRadius.circular(10),
+                          ),
+                          builder: (BuildContext context) {
+                            return Container(
+                              padding: EdgeInsets.only(
+                                top: 16,
+                                left: 16,
+                                right: 16,
+                                bottom: MediaQuery.of(
+                                  context,
+                                ).viewInsets.bottom,
+                              ),
+                              height: availableHeight,
+                              width: double.infinity,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width: 50,
+                                    height: 6,
+                                    margin: EdgeInsets.only(bottom: 20),
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey[300],
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
                                   ),
-                                ),
-                                Expanded(
-                                  child: ListView.builder(
-                                    itemCount: 1,
-                                    itemBuilder: (context, index) => GestureDetector(
-                                      onTap: () => Navigator.pop(context),
-                                      child: Card(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                            20,
+                                  Expanded(
+                                    child: ListView.builder(
+                                      itemCount: 1,
+                                      itemBuilder: (context, index) => GestureDetector(
+                                        onTap: () => Navigator.pop(context),
+                                        child: Card(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              20,
+                                            ),
                                           ),
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 15,
-                                            vertical: 8.0,
-                                          ),
-                                          child: Row(
-                                            children: [
-                                              CircleAvatar(
-                                                child: Image.asset(
-                                                  'assets/icon/Menu.png',
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 15,
+                                              vertical: 8.0,
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                CircleAvatar(
+                                                  child: Image.asset(
+                                                    'assets/icon/Menu.png',
+                                                  ),
                                                 ),
-                                              ),
-                                              SizedBox(width: 15),
-                                              Text(
-                                                'Germany',
-                                                style: TextStyle(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w500,
+                                                SizedBox(width: 15),
+                                                Text(
+                                                  'Germany',
+                                                  style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                                 ),
-                                              ),
-                                              Spacer(),
-                                              Icon(
-                                                Icons.network_cell_rounded,
-                                                color: Colors.green,
-                                              ),
-                                              Container(
-                                                margin:
-                                                    const EdgeInsets.symmetric(
-                                                      horizontal: 10,
-                                                    ),
-                                                height: 20,
-                                                width: 1.5,
-                                                color: Color.fromRGBO(
-                                                  158,
-                                                  158,
-                                                  158,
-                                                  0.322,
+                                                Spacer(),
+                                                Icon(
+                                                  Icons.network_cell_rounded,
+                                                  color: Colors.green,
                                                 ),
-                                              ),
-                                              Icon(
-                                                Icons.arrow_forward_ios_rounded,
-                                                size: 18,
-                                              ),
-                                            ],
+                                                Container(
+                                                  margin:
+                                                      const EdgeInsets.symmetric(
+                                                        horizontal: 10,
+                                                      ),
+                                                  height: 20,
+                                                  width: 1.5,
+                                                  color: Color.fromRGBO(
+                                                    158,
+                                                    158,
+                                                    158,
+                                                    0.322,
+                                                  ),
+                                                ),
+                                                Icon(
+                                                  Icons
+                                                      .arrow_forward_ios_rounded,
+                                                  size: 18,
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      );
-                    },
+                                ],
+                              ),
+                            );
+                          },
+                        );
+                      },
 
-                    icon: Icon(
-                      Icons.keyboard_arrow_up_rounded,
-                      size: 30,
-                      color: Colors.grey,
+                      icon: Icon(
+                        Icons.keyboard_arrow_up_rounded,
+                        size: 30,
+                        color: Colors.grey,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
