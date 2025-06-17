@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_vpn_netnova/detail_page.dart';
-import 'package:my_vpn_netnova/menu.dart';
-import 'package:my_vpn_netnova/speed_meter.dart';
+import 'package:my_vpn_netnova/presentation/page/detail_page.dart';
+import 'package:my_vpn_netnova/presentation/widget/menu.dart';
+import 'package:my_vpn_netnova/presentation/widget/speed_meter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

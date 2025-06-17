@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_vpn_netnova/home.dart';
+import 'package:my_vpn_netnova/presentation/page/home.dart';
 
 void main() {
   runApp(const MyApp());
